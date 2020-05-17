@@ -34,6 +34,35 @@ nav>.side-menu {
     height: 90vh;
     width: 100%;
     background: #FFFFFF;
+    list-style: none;
+    padding-top: 15px;
+}
+
+nav>.side-menu>.side-menu-item {
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
+    text-decoration: none;
+    margin: 15px;
+    padding: 12px;
+    color: #686868;
+}
+
+nav>.side-menu>.active {
+    background: #F3FAF7;
+    color: #2261B8;
+}
+
+nav>.side-menu>.side-menu-item>img {
+    padding: 0 15px;
+}
+
+nav>.side-menu>.side-menu-item>p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.8em;
+    display: flex;
+    align-items: center;
 }
 
 /* MAIN */
