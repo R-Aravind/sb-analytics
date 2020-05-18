@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap');
 
 /* Reset defaults and Define font */
 * {
@@ -28,6 +28,14 @@ nav>.sb-logo {
     border-bottom: 0.5px solid #F2F6F9;
     box-sizing: border-box;
     background: #FFFFFF;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav>.sb-logo>img {
+    height: 7vh;
 }
 
 nav>.side-menu {
@@ -96,7 +104,7 @@ main>header>.title {
 
 main>header>.logged-user {
     font-style: normal;
-    font-weight: 500;
+    font-weight: bold;
     font-size: 0.8em;
     display: flex;
     align-items: center;
@@ -112,4 +120,71 @@ main>section {
     height: 90vh;
     width: 100%;
     background: #F2F6F9;
+    padding: 30px;
+}
+
+main>section>h1 {
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+/* SEARCH-BAR */
+section>.search-bar {
+    width: 47vw;
+    background-color: #FFFFFF;
+    border-radius: 6px;
+    box-shadow: 0px 1px 4px rgba(69, 69, 69, 0.12);
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    overflow: hidden;
+}
+
+section>.search-bar>img {
+    padding: 0 12px;
+}
+
+section>.search-bar>input,
+section>.search-bar>select,
+section>.search-bar>button {
+    border: none;
+}
+
+section>.search-bar>input {
+    width: 25vw;
+}
+
+section>.search-bar>input::placeholder {
+    color: #C4C4C4;
+}
+
+section>.search-bar>select {
+    /* width: 11vw; */
+    padding: 12px 30px;
+    padding-right: 45px;
+    border-left: 2px solid #F2F6F9;
+    color: #686868;
+    text-align: center;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('../icons/down-arrow.svg');
+    background-position: 78% 50%;
+    background-repeat: no-repeat;
+}
+
+section>.search-bar>button {
+    width: 11vw;
+    background-color: #00629B;
+    color: #FFFFFF;
+    padding: 12px;
+    font-weight: bold;
+}
+
+section>.search-bar>select:hover,
+section>.search-bar>button:hover {
+    cursor: pointer;
 }
