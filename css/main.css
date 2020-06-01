@@ -124,6 +124,7 @@ main>section {
     /* padding-left: 30px; */
     /* padding-top: 30px; */
     padding: 30px;
+    position: relative;
 }
 
 main>section>h1 {
@@ -167,7 +168,7 @@ section>.search-bar>select {
     /* width: 11vw; */
     padding: 12px 30px;
     padding-right: 45px;
-    border-left: 2px solid #F2F6F9;
+    border-left: 2px solid #FFFFFF;
     color: #686868;
     text-align: center;
 
@@ -195,28 +196,70 @@ section>.search-bar>button:hover {
 /* CONTAINER */
 main>section>.container {
     display: flex;
+    position: relative;
 }
 
 
 /* TABLE */
 main>section>.container>table {
-    /* table-layout: fixed; */
-    width: 47vw;
-    height: 75%;
+    width: 46vw;
     margin-top: 30px;
-    background-color: #FFFFFF;
-    border-radius: 6px;
-    box-shadow: 0px 1px 4px rgba(69, 69, 69, 0.12);
-    /* padding: 12px 20px; */
     color: #686868;
     font-size: 0.8em;
 
     overflow: auto;
 }
 
+main>section>.container>table>thead {
+    display: block;
+    position: absolute;
+    background-color: #FFFFFF;
+    /* position: sticky; */
+    border-radius: 6px 6px 0 0;
+}
+
+main>section>.container>table>tbody {
+    top: 40px;
+    display: block;
+    position: relative;
+    overflow-y: auto;
+    height: 60vh;
+    background-color: #FFFFFF;
+    /* border-radius: 6px; */
+    /* width: 100%; */
+    left: 0;
+}
+
+/*  CUSTOM SCROLLBAR FOR TABLE  */
+main>section>.container>table>tbody::-webkit-scrollbar {
+    background: none;
+    width: 5px;
+    height: 100%;
+}
+
+main>section>.container>table>tbody::-webkit-scrollbar-track {
+    background: rgba(196, 196, 196, 0.46);
+}
+
+main>section>.container>table>tbody::-webkit-scrollbar-thumb {
+    /* width: 4px; */
+    background: rgba(70, 70, 70, 0.42);
+    border-radius: 10px;
+    background-clip: padding-box;
+}
+
+main>section>.container>table>tbody::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+main>section>.container>table>tbody::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
+
 main>section>.container>table>thead>tr {
     padding: 12px 0;
-    border-bottom: solid 1px black;
 }
 
 main>section>.container>table>thead>tr>th>img {
@@ -224,7 +267,8 @@ main>section>.container>table>thead>tr>th>img {
 }
 
 main>section>.container>table>tbody>tr {
-    padding-bottom: 12px;
+    padding-bottom: 8px;
+    padding-top: 8px;
 }
 
 main>section>.container>table>thead>tr,
@@ -282,4 +326,56 @@ main>section>.container>.request-box {
     background: #FFFFFF;
     border-radius: 6px;
     box-shadow: 0px 1px 4px rgba(69, 69, 69, 0.12);
+}
+
+main>section>.container>.request-box>p {
+    font-size: 0.9em;
+    color: #353535;
+    padding: 12px 15px;
+    border-bottom: 0.5px solid #E5E5E5;
+}
+
+main>section>.container>.request-box>form {
+    margin: 12px 15px;
+}
+
+main>section>.container>.request-box>form>input,
+main>section>.container>.request-box>form>textarea,
+main>section>.container>.request-box>form>button {
+    padding: 10px;
+    border: none;
+    background-color: #FFFFFF;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
+    border-radius: 6px;
+    color: #C4C4C4;
+}
+
+main>section>.container>.request-box>form>input::placeholder,
+main>section>.container>.request-box>form>textarea::placeholder {
+    font-size: 1.1em;
+    color: #C4C4C4;
+}
+
+main>section>.container>.request-box>form>input {
+    width: 93.2%;
+}
+
+main>section>.container>.request-box>form>.purpose {
+    width: 93.2%;
+    height: 20vh;
+}
+
+
+main>section>.container>.request-box>form>p {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+main>section>.container>.request-box>form>button {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 100%;
+    background-color: #00629B;
+    color: #FFFFFF;
+    font-weight: 600;
 }
