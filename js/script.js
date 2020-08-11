@@ -13,7 +13,7 @@ const makeHtml = (data) => {
     <td>${item.middle_name || "-"}</td>
     <td>${item.last_name}</td>
     <td>
-        <div class="status-${activity}">${activity.toUpperCase()}</div>
+        <div class="status-${activity}">${item.renewal_category}</div>
     </td>
     </tr>`;
   });
