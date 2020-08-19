@@ -1,15 +1,36 @@
 import React from "react";
 import upArrow_icon from "./icons/up-arrow.svg";
 
-const Table = ({ ready, data }) => {
+const Table = ({ ready, data, setData }) => {
+  const idSort = () => {
+    const mydata = [...data];
+    mydata[1].member_id < mydata[0].member_id
+      ? mydata.sort((a, b) => a.member_id - b.member_id)
+      : mydata.sort((a, b) => b.member_id - a.member_id);
+    setData(mydata);
+  };
+  const FirstNameSort = () => {
+    const mydata = [...data];
+    mydata[1].first_name < mydata[0].first_name
+      ? mydata.sort((a, b) => (a.first_name > b.first_name ? 1 : -1))
+      : mydata.sort((a, b) => (a.first_name > b.first_name ? -1 : 1));
+    setData(mydata);
+  };
+  const StatusSort = () => {
+    const mydata = [...data];
+    mydata[1].member_id > mydata[0].member_id
+      ? mydata.sort((a, _) => (a.renewal_category === "Arrears" ? 1 : -1))
+      : mydata.sort((a, _) => (a.renewal_category === "Arrears" ? -1 : 1));
+    setData(mydata);
+  };
   return (
     <table>
       <thead>
         <tr>
-          <th>
+          <th onClick={idSort} style={{ cursor: "pointer" }}>
             Member Id <img src={upArrow_icon} alt="" />
           </th>
-          <th>
+          <th onClick={FirstNameSort} style={{ cursor: "pointer" }}>
             First Name <img src={upArrow_icon} alt="" />
           </th>
           <th>
@@ -18,7 +39,7 @@ const Table = ({ ready, data }) => {
           <th>
             Last Name <img src={upArrow_icon} alt="" />
           </th>
-          <th>
+          <th onClick={StatusSort} style={{ cursor: "pointer" }}>
             Status <img src={upArrow_icon} alt="" />
           </th>
         </tr>

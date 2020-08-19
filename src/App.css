@@ -376,3 +376,10 @@ main > section > .container > .request-box > form > button {
   color: #ffffff;
   font-weight: 600;
 }
+
+.red {
+  color: #ba0c2f;
+}
+.alert {
+  font-size: 0.8rem;
+}

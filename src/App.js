@@ -5,21 +5,45 @@ import Search from "./components/Search/Search";
 import Table from "./components/Table/Table";
 import RequestBox from "./components/RequestBox/RequestBox";
 import { useState } from "react";
+// import axios from "axios";
+import json_data from "./data.json";
 
 function App() {
   useEffect(() => {
-    document.title = "SB Analytics";
-    fetch("https://sb-analytics-api1.herokuapp.com/api/members")
-      .then((res) => res.json())
-      .then((data) => {
-        setReady(true);
-        setData(data);
-      });
+    // axios
+    //   .get("https://sb-analytics-api1.herokuapp.com/api/members")
+    //   .then((res) => {
+    //     setReady(true);
+    //     console.log(res.data);
+    //     setData(res.data);
+    //   });
+    setData(json_data);
   }, []);
 
+  const clearAlerts = () => {
+    setAlerts({
+      id: "",
+      purpose: "",
+    });
+  };
+  const sendReq = (data) => {
+    // axios.post("https://sb-analytics-api1.herokuapp.com/api/", data);
+    if (!data.id.length || !data.purpose.length) {
+      setAlerts({
+        id: "Enter a valid Id",
+        purpose: "Enter a purpose for the information",
+      });
+      setTimeout(() => {
+        clearAlerts();
+      }, 5000);
+    } else {
+      console.log(data);
+      clearAlerts();
+    }
+  };
   const [ready, setReady] = useState(false);
   const [data, setData] = useState([]);
-
+  const [alerts, setAlerts] = useState({ id: "", purpose: "" });
   return (
     <>
       <Navbar />
@@ -34,8 +58,8 @@ function App() {
           <h1>Member Details</h1>
           <Search />
           <div className="container">
-            <Table data={data} ready={ready} />
-            <RequestBox />
+            <Table data={data} ready={ready} setData={setData} />
+            <RequestBox sendReq={sendReq} alerts={alerts} />
           </div>
         </section>
       </main>
