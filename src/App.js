@@ -20,30 +20,13 @@ function App() {
     setData(json_data);
   }, []);
 
-  const clearAlerts = () => {
-    setAlerts({
-      id: "",
-      purpose: "",
-    });
-  };
   const sendReq = (data) => {
     // axios.post("https://sb-analytics-api1.herokuapp.com/api/", data);
-    if (!data.id.length || !data.purpose.length) {
-      setAlerts({
-        id: "Enter a valid Id",
-        purpose: "Enter a purpose for the information",
-      });
-      setTimeout(() => {
-        clearAlerts();
-      }, 5000);
-    } else {
-      console.log(data);
-      clearAlerts();
-    }
+    console.log("Got the request");
+    console.log(data);
   };
   const [ready, setReady] = useState(false);
   const [data, setData] = useState([]);
-  const [alerts, setAlerts] = useState({ id: "", purpose: "" });
   return (
     <>
       <Navbar />
@@ -59,7 +42,7 @@ function App() {
           <Search />
           <div className="container">
             <Table data={data} ready={ready} setData={setData} />
-            <RequestBox sendReq={sendReq} alerts={alerts} />
+            <RequestBox sendReq={sendReq} />
           </div>
         </section>
       </main>

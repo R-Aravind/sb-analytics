@@ -21,10 +21,10 @@ const Table = ({ ready, data, setData }) => {
   const StatusSort = () => {
     const mydata = [...data];
     if (tick) {
-      mydata.sort((a, _) => (a.renewal_category === "Arrears" ? 1 : -1));
+      mydata.sort((a) => (a.renewal_category === "Arrears" ? 1 : -1));
       setTick(0);
     } else {
-      mydata.sort((a, _) => (a.renewal_category === "Arrears" ? -1 : 1));
+      mydata.sort((a) => (a.renewal_category === "Arrears" ? -1 : 1));
       setTick(1);
     }
     setData(mydata);
