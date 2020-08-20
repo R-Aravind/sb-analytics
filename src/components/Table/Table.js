@@ -1,7 +1,9 @@
 import React from "react";
 import upArrow_icon from "./icons/up-arrow.svg";
+import { useState } from "react";
 
 const Table = ({ ready, data, setData }) => {
+  const [tick, setTick] = useState(1);
   const idSort = () => {
     const mydata = [...data];
     mydata[1].member_id < mydata[0].member_id
@@ -18,9 +20,13 @@ const Table = ({ ready, data, setData }) => {
   };
   const StatusSort = () => {
     const mydata = [...data];
-    mydata[1].member_id > mydata[0].member_id
-      ? mydata.sort((a, _) => (a.renewal_category === "Arrears" ? 1 : -1))
-      : mydata.sort((a, _) => (a.renewal_category === "Arrears" ? -1 : 1));
+    if (tick) {
+      mydata.sort((a, _) => (a.renewal_category === "Arrears" ? 1 : -1));
+      setTick(0);
+    } else {
+      mydata.sort((a, _) => (a.renewal_category === "Arrears" ? -1 : 1));
+      setTick(1);
+    }
     setData(mydata);
   };
   return (
