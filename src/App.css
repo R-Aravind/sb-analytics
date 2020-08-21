@@ -288,8 +288,8 @@ main > section > .container > table > tbody > tr > td {
 }
 
 main > section > .container > table > tbody > tr > td > .status-active {
-  width: 60%;
-  height: 2.7vh;
+  width: 75%;
+  height: 2.8vh;
   background: #00843d;
   border-radius: 2px;
   color: #ffffff;
@@ -302,8 +302,8 @@ main > section > .container > table > tbody > tr > td > .status-active {
 }
 
 main > section > .container > table > tbody > tr > td > .status-inactive {
-  width: 60%;
-  height: 2.7vh;
+  width: 75%;
+  height: 2.8vh;
   background: #ba0c2f;
   border-radius: 2px;
   color: #ffffff;

@@ -76,7 +76,9 @@ const Table = ({ ready, data, setData, filter }) => {
                   <td>{middle_name}</td>
                   <td>{last_name}</td>
                   <td>
-                    <div className={`status-${activity}`}>{activity}</div>
+                    <div className={`status-${activity}`}>
+                      {renewal_category}
+                    </div>
                   </td>
                 </tr>
               );
