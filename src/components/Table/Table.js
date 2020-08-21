@@ -52,11 +52,8 @@ const Table = ({ ready, data, setData, filter }) => {
       </thead>
       <tbody>
         {data
-          .filter(({ first_name, middle_name, last_name }) => {
-            let name = `${first_name} `;
-            if (middle_name) name += middle_name + " ";
-            if (last_name) name += last_name;
-            return name.toUpperCase().includes(filter.toUpperCase());
+          .filter(({ member_id }) => {
+            return ("" + member_id).includes(filter);
           })
           .map(
             (
