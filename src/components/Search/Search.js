@@ -2,8 +2,7 @@ import React from "react";
 import Search_icon from "./icons/search.svg";
 import { useState } from "react";
 
-const Search = () => {
-  const [query, setquery] = useState("");
+const Search = ({ query, setQuery }) => {
   return (
     <div className="search-bar">
       <img src={Search_icon} alt="" />
@@ -11,7 +10,7 @@ const Search = () => {
         type="text"
         placeholder="Search"
         value={query}
-        onChange={(e) => setquery(e.target.value)}
+        onChange={(e) => setQuery(e.target.value)}
       />
       <select id="">
         <option value="member-id">Member ID</option>

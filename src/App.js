@@ -27,6 +27,7 @@ function App() {
   };
   const [ready, setReady] = useState(false);
   const [data, setData] = useState([]);
+  const [query, setQuery] = useState("");
   return (
     <>
       <Navbar />
@@ -39,9 +40,9 @@ function App() {
 
         <section>
           <h1>Member Details</h1>
-          <Search />
+          <Search query={query} setQuery={setQuery} />
           <div className="container">
-            <Table data={data} ready={ready} setData={setData} />
+            <Table data={data} filter={query} ready={ready} setData={setData} />
             <RequestBox sendReq={sendReq} />
           </div>
         </section>

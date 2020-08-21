@@ -2,7 +2,7 @@ import React from "react";
 import upArrow_icon from "./icons/up-arrow.svg";
 import { useState } from "react";
 
-const Table = ({ ready, data, setData }) => {
+const Table = ({ ready, data, setData, filter }) => {
   const [tick, setTick] = useState(1);
   const idSort = () => {
     const mydata = [...data];
@@ -51,26 +51,40 @@ const Table = ({ ready, data, setData }) => {
         </tr>
       </thead>
       <tbody>
-        {data.map(
-          (
-            { member_id, first_name, middle_name, last_name, renewal_category },
-            index
-          ) => {
-            const activity =
-              renewal_category === "Arrears" ? "inactive" : "active";
-            return (
-              <tr key={index}>
-                <td>{member_id}</td>
-                <td>{first_name}</td>
-                <td>{middle_name}</td>
-                <td>{last_name}</td>
-                <td>
-                  <div className={`status-${activity}`}>{activity}</div>
-                </td>
-              </tr>
-            );
-          }
-        )}
+        {data
+          .filter(({ first_name, middle_name, last_name }) => {
+            let name = `${first_name} `;
+            if (middle_name) name += middle_name + " ";
+            if (last_name) name += last_name;
+            return name.toUpperCase().includes(filter.toUpperCase());
+          })
+          .map(
+            (
+              {
+                member_id,
+                first_name,
+                middle_name,
+                last_name,
+                renewal_category,
+              },
+              index
+            ) => {
+              const activity =
+                renewal_category === "Arrears" ? "inactive" : "active";
+              console.log("off");
+              return (
+                <tr key={index}>
+                  <td>{member_id}</td>
+                  <td>{first_name}</td>
+                  <td>{middle_name}</td>
+                  <td>{last_name}</td>
+                  <td>
+                    <div className={`status-${activity}`}>{activity}</div>
+                  </td>
+                </tr>
+              );
+            }
+          )}
       </tbody>
     </table>
   );
