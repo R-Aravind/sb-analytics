@@ -68,7 +68,6 @@ const Table = ({ ready, data, setData, filter }) => {
             ) => {
               const activity =
                 renewal_category === "Arrears" ? "inactive" : "active";
-              console.log("off");
               return (
                 <tr key={index}>
                   <td>{member_id}</td>
@@ -77,7 +76,10 @@ const Table = ({ ready, data, setData, filter }) => {
                   <td>{last_name}</td>
                   <td>
                     <div className={`status-${activity}`}>
-                      {renewal_category}
+                      {(renewal_category === "First Year Renewed") |
+                      (renewal_category === "Renew")
+                        ? "Renewed"
+                        : renewal_category}
                     </div>
                   </td>
                 </tr>
