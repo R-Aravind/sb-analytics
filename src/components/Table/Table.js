@@ -2,7 +2,7 @@ import React from "react";
 import upArrow_icon from "./icons/up-arrow.svg";
 import { useState } from "react";
 
-const Table = ({ ready, data, setData, filter }) => {
+const Table = ({ ready, data, setData, filter, category }) => {
   const [tick, setTick] = useState(1);
   const idSort = () => {
     const mydata = [...data];
@@ -21,12 +21,22 @@ const Table = ({ ready, data, setData, filter }) => {
   const StatusSort = () => {
     const mydata = [...data];
     if (tick) {
-      mydata.sort((a) => (a.renewal_category === "Arrears" ? 1 : -1));
+      mydata.sort((a, b) =>
+        a.renewal_category.toUpperCase() < b.renewal_category.toUpperCase()
+          ? -1
+          : 1
+      );
+
       setTick(0);
     } else {
-      mydata.sort((a) => (a.renewal_category === "Arrears" ? -1 : 1));
+      mydata.sort((a, b) =>
+        a.renewal_category.toUpperCase() < b.renewal_category.toUpperCase()
+          ? 1
+          : -1
+      );
       setTick(1);
     }
+
     setData(mydata);
   };
   return (
@@ -52,9 +62,26 @@ const Table = ({ ready, data, setData, filter }) => {
       </thead>
       <tbody>
         {data
-          .filter(({ member_id }) => {
-            return ("" + member_id).includes(filter);
-          })
+          .filter(
+            ({
+              member_id,
+              first_name,
+              last_name,
+              middle_name,
+              renewal_category,
+            }) => {
+              if (category === "member_id")
+                return ("" + member_id).includes(filter);
+              if (category === "name") {
+                let name = first_name;
+                if (middle_name) name += " " + middle_name;
+                if (last_name) name += " " + last_name;
+                return name.toUpperCase().includes(filter.toUpperCase());
+              }
+              if (category === "renewal_category")
+                return renewal_category.includes(filter);
+            }
+          )
           .map(
             (
               {

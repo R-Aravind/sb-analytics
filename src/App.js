@@ -28,6 +28,7 @@ function App() {
   const [ready, setReady] = useState(false);
   const [data, setData] = useState([]);
   const [query, setQuery] = useState("");
+  const [category, setCategory] = useState("member_id");
   return (
     <>
       <Navbar />
@@ -40,9 +41,20 @@ function App() {
 
         <section>
           <h1>Member Details</h1>
-          <Search query={query} setQuery={setQuery} />
+          <Search
+            query={query}
+            setQuery={setQuery}
+            category={category}
+            setCategory={setCategory}
+          />
           <div className="container">
-            <Table data={data} filter={query} ready={ready} setData={setData} />
+            <Table
+              data={data}
+              filter={query}
+              ready={ready}
+              setData={setData}
+              category={category}
+            />
             <RequestBox sendReq={sendReq} />
           </div>
         </section>
