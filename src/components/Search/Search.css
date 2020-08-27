@@ -1,0 +1,60 @@
+/* SEARCH-BAR */
+section > .search-bar {
+  width: 47vw;
+  background-color: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0px 1px 4px rgba(69, 69, 69, 0.12);
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  overflow: hidden;
+}
+
+section > .search-bar > img {
+  padding: 0 12px;
+}
+
+section > .search-bar > input,
+section > .search-bar > select,
+section > .search-bar > button {
+  border: none;
+}
+
+section > .search-bar > input {
+  width: 25vw;
+}
+
+section > .search-bar > input::placeholder {
+  color: #c4c4c4;
+}
+
+section > .search-bar > select {
+  /* width: 11vw; */
+  padding: 12px 30px;
+  padding-right: 45px;
+  border-left: 2px solid #ffffff;
+  color: #686868;
+  text-align: center;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("./icons/down-arrow.svg");
+  background-position: 78% 50%;
+  background-repeat: no-repeat;
+}
+
+section > .search-bar > button {
+  width: 15vw;
+  background-color: #00629b;
+  color: #ffffff;
+  padding: 12px;
+  font-weight: bold;
+}
+
+section > .search-bar > select:hover,
+section > .search-bar > button:hover {
+  cursor: pointer;
+}

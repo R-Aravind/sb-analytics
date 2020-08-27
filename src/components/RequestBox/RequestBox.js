@@ -1,4 +1,5 @@
 import React from "react";
+import "./RequestBox.css";
 import { useState } from "react";
 
 const Request_Box = ({ sendReq }) => {

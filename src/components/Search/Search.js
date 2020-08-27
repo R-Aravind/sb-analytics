@@ -1,6 +1,6 @@
 import React from "react";
 import Search_icon from "./icons/search.svg";
-import { useState } from "react";
+import "./Search.css";
 
 const Search = ({ query, setQuery, setCategory }) => {
   return (

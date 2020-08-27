@@ -1,4 +1,5 @@
 import React from "react";
+import "./Table.css";
 import upArrow_icon from "./icons/up-arrow.svg";
 import { useState } from "react";
 

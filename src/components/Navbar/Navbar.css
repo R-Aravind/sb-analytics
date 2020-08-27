@@ -1,0 +1,57 @@
+nav {
+  height: 100vh;
+  width: 18vw;
+  border-right: 0.5px solid #f2f6f9;
+  box-sizing: border-box;
+}
+
+nav > .sb-logo {
+  height: 10vh;
+  width: 100%;
+  border-bottom: 0.5px solid #f2f6f9;
+  box-sizing: border-box;
+  background: #ffffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+nav > .sb-logo > img {
+  height: 7vh;
+}
+
+nav > .side-menu {
+  height: 90vh;
+  width: 100%;
+  background: #ffffff;
+  list-style: none;
+  padding-top: 15px;
+}
+
+nav > .side-menu > .side-menu-item {
+  display: flex;
+  align-items: center;
+  border-radius: 6px;
+  text-decoration: none;
+  margin: 15px;
+  padding: 12px;
+  color: #686868;
+}
+
+nav > .side-menu > .active {
+  background: #f3faf7;
+  color: #2261b8;
+}
+
+nav > .side-menu > .side-menu-item > img {
+  padding: 0 15px;
+}
+
+nav > .side-menu > .side-menu-item > p {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 0.8em;
+  display: flex;
+  align-items: center;
+}

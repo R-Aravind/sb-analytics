@@ -1,5 +1,6 @@
 import React from "react";
 import Sb_logo from "./icons/ieee_sb_cec_logo.png";
+import "./Navbar.css";
 import todo_svg from "./icons/todo.svg";
 import barGraph_svg from "./icons/bar-graph.svg";
 
