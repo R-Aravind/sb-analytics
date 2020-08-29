@@ -1,0 +1,61 @@
+/* REQUEST MEMBER INFO */
+.request-box {
+  margin-top: 30px;
+  margin-left: 30px;
+  width: 28vw;
+  height: 100%;
+  background: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0px 1px 4px rgba(69, 69, 69, 0.12);
+}
+
+.request-box > p {
+  font-size: 0.9em;
+  color: #353535;
+  padding: 12px 15px;
+  border-bottom: 0.5px solid #e5e5e5;
+}
+
+.request-box > form {
+  margin: 12px 15px;
+}
+
+.request-box > form > input,
+.request-box > form > textarea,
+.request-box > form > button {
+  padding: 10px;
+  border: none;
+  background-color: #ffffff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
+  color: #c4c4c4;
+}
+
+.request-box > form > input::placeholder,
+.request-box > form > textarea::placeholder {
+  font-size: 1.1em;
+  color: #c4c4c4;
+}
+
+.request-box > form > input {
+  width: 93.2%;
+}
+
+.request-box > form > .purpose {
+  width: 93.2%;
+  height: 20vh;
+}
+
+.request-box > form > p {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.request-box > form > button {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  width: 100%;
+  background-color: #00629b;
+  color: #ffffff;
+  font-weight: 600;
+}

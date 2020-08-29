@@ -1,0 +1,117 @@
+/* TABLE */
+table {
+  /* width: 46vw; */
+  width: 47.2vw;
+  margin-top: 30px;
+  color: #686868;
+  font-size: 0.8em;
+
+  overflow: auto;
+}
+
+table > thead {
+  display: block;
+  position: absolute;
+  background-color: #ffffff;
+  /* position: sticky; */
+  border-radius: 6px 6px 0 0;
+}
+
+table > tbody {
+  top: 40px;
+  display: block;
+  position: relative;
+  overflow-y: auto;
+  height: 60vh;
+  background-color: #ffffff;
+  /* border-radius: 6px; */
+  /* width: 100%; */
+  left: 0;
+}
+
+/*  CUSTOM SCROLLBAR FOR TABLE  */
+table > tbody::-webkit-scrollbar {
+  background: none;
+  width: 5px;
+  height: 100%;
+}
+
+table > tbody::-webkit-scrollbar-track {
+  background: rgba(196, 196, 196, 0.46);
+}
+
+table > tbody::-webkit-scrollbar-thumb {
+  /* width: 4px; */
+  background: rgba(70, 70, 70, 0.42);
+  border-radius: 10px;
+  background-clip: padding-box;
+}
+
+table > tbody::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+table > tbody::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+table > thead > tr {
+  padding: 12px 0;
+}
+
+table > thead > tr > th > img {
+  padding: 0 4px;
+}
+
+table > tbody > tr {
+  padding-bottom: 8px;
+  padding-top: 8px;
+}
+
+table > thead > tr,
+table > tbody > tr {
+  width: 47vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+table > thead > tr > th,
+table > tbody > tr > td {
+  width: 9vw;
+  /* padding-right: 20px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+table > tbody > tr > td > .status-active {
+  width: 60%;
+  height: 2.7vh;
+  background: #00843d;
+  border-radius: 2px;
+  color: #ffffff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 0.8em;
+}
+
+table > tbody > tr > td > .status-inactive {
+  width: 60%;
+  height: 2.7vh;
+  background: #ba0c2f;
+  border-radius: 2px;
+  color: #ffffff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 0.8em;
+}

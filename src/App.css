@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap");
+
+/* Reset defaults and Define font */
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  font-family: "Rubik", sans-serif;
+  font-weight: normal;
+}
+
+#root {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+/* MAIN */
+main {
+  height: 100vh;
+  width: 82vw;
+}
+
+main > header {
+  height: 10vh;
+  width: 100%;
+  border-bottom: 0.5px solid #f2f6f9;
+  box-sizing: border-box;
+  background: #ffffff;
+  display: flex;
+  justify-content: space-between;
+}
+
+main > header > .title {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.08em;
+  color: #919191;
+  text-transform: uppercase;
+
+  padding-left: 30px;
+}
+
+main > header > .logged-user {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 0.8em;
+  display: flex;
+  align-items: center;
+  text-align: right;
+  letter-spacing: 0.08em;
+  color: #353434;
+
+  padding-right: 60px;
+}
+
+main > section {
+  height: 90vh;
+  /* width: 100%; */
+  background: #f2f6f9;
+  /* padding-left: 30px; */
+  /* padding-top: 30px; */
+  padding: 30px;
+  position: relative;
+}
+
+main > section > h1 {
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+/* CONTAINER */
+main > section > .container {
+  display: flex;
+  position: relative;
+}
+
+.red {
+  color: #ba0c2f;
+}
+.alert {
+  font-size: 0.8rem;
+}
