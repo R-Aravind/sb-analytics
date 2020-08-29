@@ -5,6 +5,7 @@ import { useState } from "react";
 
 const Table = ({ ready, data, setData, filter, category }) => {
   const [tick, setTick] = useState(1);
+  // sorting by id
   const idSort = () => {
     const mydata = [...data];
     mydata[1].member_id < mydata[0].member_id
@@ -12,6 +13,7 @@ const Table = ({ ready, data, setData, filter, category }) => {
       : mydata.sort((a, b) => b.member_id - a.member_id);
     setData(mydata);
   };
+  // sorting by name
   const FirstNameSort = () => {
     const mydata = [...data];
     mydata[1].first_name < mydata[0].first_name
@@ -19,21 +21,26 @@ const Table = ({ ready, data, setData, filter, category }) => {
       : mydata.sort((a, b) => (a.first_name > b.first_name ? -1 : 1));
     setData(mydata);
   };
+  // sorting the status
   const StatusSort = () => {
     const mydata = [...data];
+
+    // function to getting a consistent category for sorting
+
+    const getcat = (item) =>
+      (item.renewal_category === "First Year Renewed") |
+      (item.renewal_category === "Renew")
+        ? "Renewed"
+        : item.renewal_category;
     if (tick) {
       mydata.sort((a, b) =>
-        a.renewal_category.toUpperCase() < b.renewal_category.toUpperCase()
-          ? -1
-          : 1
+        getcat(a).toUpperCase() < getcat(b).toUpperCase() ? -1 : 1
       );
 
       setTick(0);
     } else {
       mydata.sort((a, b) =>
-        a.renewal_category.toUpperCase() < b.renewal_category.toUpperCase()
-          ? 1
-          : -1
+        getcat(a).toUpperCase() < getcat(b).toUpperCase() ? 1 : -1
       );
       setTick(1);
     }
@@ -62,6 +69,7 @@ const Table = ({ ready, data, setData, filter, category }) => {
         </tr>
       </thead>
       <tbody>
+        {/* dunamically adding data from the api  */}
         {data
           .filter(
             ({
@@ -80,7 +88,10 @@ const Table = ({ ready, data, setData, filter, category }) => {
                 return name.toUpperCase().includes(filter.toUpperCase());
               }
               if (category === "renewal_category")
-                return renewal_category.includes(filter);
+                return renewal_category
+                  .toUpperCase()
+                  .includes(filter.toUpperCase());
+              return "";
             }
           )
           .map(

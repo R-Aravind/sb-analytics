@@ -12,6 +12,7 @@ const Search = ({ query, setQuery, setCategory }) => {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
+      {/* 👇🏻the select menu to select search category  */}
       <select
         onChange={(e) => {
           console.log("boo");

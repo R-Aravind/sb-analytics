@@ -3,6 +3,7 @@ import "./RequestBox.css";
 import { useState } from "react";
 
 const Request_Box = ({ sendReq }) => {
+  //👇🏻 function to validate the message before sending to the server
   const passReq = (data) => {
     let youShallNotpass = false;
     if (data.id.length !== 8 || !parseInt(data.id)) {
@@ -20,6 +21,7 @@ const Request_Box = ({ sendReq }) => {
     }
     console.log("YOU SHALL NOT PASS!!");
   };
+  // Hooks for alert and for the data to be passed 🔽
   const [idAlert, setIdAlert] = useState("");
   const [purpAlert, setpurpAlert] = useState("");
   const [Id, SetId] = useState("");

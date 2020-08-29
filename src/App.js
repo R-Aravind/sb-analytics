@@ -5,19 +5,18 @@ import Search from "./components/Search/Search";
 import Table from "./components/Table/Table";
 import RequestBox from "./components/RequestBox/RequestBox";
 import { useState } from "react";
-// import axios from "axios";
-import json_data from "./data.json";
+import axios from "axios";
 
 function App() {
   useEffect(() => {
-    // axios
-    //   .get("https://sb-analytics-api1.herokuapp.com/api/members")
-    //   .then((res) => {
-    //     setReady(true);
-    //     console.log(res.data);
-    //     setData(res.data);
-    //   });
-    setData(json_data);
+    // Calling the api for member data
+    axios
+      .get("https://sb-analytics-api1.herokuapp.com/api/members")
+      .then((res) => {
+        setReady(true);
+        console.log(res.data);
+        setData(res.data);
+      });
   }, []);
 
   const sendReq = (data) => {
@@ -25,14 +24,16 @@ function App() {
     console.log("Got the request");
     console.log(data);
   };
+
+  // Hooks
   const [ready, setReady] = useState(false);
   const [data, setData] = useState([]);
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("member_id");
   return (
     <>
+      {/* Navbar Component  */}
       <Navbar />
-      {/* main is here */}
       <main>
         <header>
           <h1 className="title">STUDENT BRANCH ANALYTICS</h1>
@@ -41,6 +42,7 @@ function App() {
 
         <section>
           <h1>Member Details</h1>
+          {/* Search Bar Component  */}
           <Search
             query={query}
             setQuery={setQuery}
@@ -48,6 +50,7 @@ function App() {
             setCategory={setCategory}
           />
           <div className="container">
+            {/* Table Component that displays all the data  */}
             <Table
               data={data}
               filter={query}
@@ -55,6 +58,7 @@ function App() {
               setData={setData}
               category={category}
             />
+            {/* Request Box component  */}
             <RequestBox sendReq={sendReq} />
           </div>
         </section>
